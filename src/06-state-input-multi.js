@@ -11,7 +11,8 @@ module.exports = class extends React.Component {
       name: '',
       email: ''
     },
-    people: []
+    people: [],
+    fieldErrors: {},
   };
 
   onFormSubmit = evt => {
@@ -45,12 +46,18 @@ module.exports = class extends React.Component {
             onChange={this.onInputChange}
           />
 
+          <span style={{color: 'red'}}>{this.state.fieldErrors.name}</span>
+          <br />
+
           <input
             placeholder="Email"
             name="email"
             value={this.state.fields.email}
             onChange={this.onInputChange}
           />
+
+          <span style={{ color: 'red' }}>{this.state.fieldErrors.email}</span>
+          <br />
 
           <input type="submit" />
         </form>
