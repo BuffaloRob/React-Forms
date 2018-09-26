@@ -9,8 +9,11 @@ module.exports = class extends React.Component {
   state = { names: [] };
 
   onFormSubmit = (evt) => {
+    const name = this.refs.name.value;
+    const names = [...this.state.names, name ];
+    this.setState({ names: names });
+    this.refs.name.value = '';
     evt.preventDefault();
-    console.log(this.refs.name.value);
   };
 
   render() {
