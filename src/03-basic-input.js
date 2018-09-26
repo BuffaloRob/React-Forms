@@ -6,6 +6,8 @@ document.body.appendChild(content);
 module.exports = class extends React.Component {
   static displayName = "03-basic-input";
 
+  state = { names: [] };
+
   onFormSubmit = (evt) => {
     evt.preventDefault();
     console.log(this.refs.name.value);
@@ -24,6 +26,13 @@ module.exports = class extends React.Component {
 
           <input type='submit' />
         </form>
+
+        <div>
+          <h3>Names</h3>
+          <ul>
+            { this.state.names.map((name, i) => <li key={i}>{name}</li>)}
+          </ul>
+        </div>
       </div>
     );
   }
