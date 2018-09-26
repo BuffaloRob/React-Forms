@@ -17,15 +17,21 @@ module.exports = class extends React.Component {
   };
 
   onFormSubmit = evt => {
-    const people = [...this.state.people, this.state.fields];
+    const people = [...this.state.people];
+    const person = this.state.fields;
+    const fieldErrors = this.validate(person);
+    this.setState({fieldErrors});
+    evt.preventDefault();
+
+    if (Object.keys(fieldErrors).length) return;
+
     this.setState({
-      people,
+      people: people.concat(person),
       fields: {
         name: '',
         email: ''
       }
     });
-    evt.preventDefault();
   };
 
   onInputChange = evt => {
