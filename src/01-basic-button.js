@@ -6,12 +6,9 @@ document.body.appendChild(content);
 module.exports = class extends React.Component {
   static displayName = "01-basic-button";
 
-  onGreatClick = (evt) => {
-    console.log('The user clicked button-1: great', evt);
-  };
-
-  onAmazingClick = (evt) => {
-    console.log('The user clicked button-2: amazing', evt);
+  onButtonClick = (evt) => {
+    const btn = evt.target;
+    console.log(`The user clicked ${btn.name}: ${btn.value}`);
   };
 
   render() {
