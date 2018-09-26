@@ -1,4 +1,5 @@
 import React from 'react';
+import isEmail from "validator/lib/isEmail";
 
 const content = document.createElement('div');
 document.body.appendChild(content);
@@ -31,6 +32,14 @@ module.exports = class extends React.Component {
     const fields = Object.assign({}, this.state.fields);
     fields[evt.target.name] = evt.target.value;
     this.setState({fields});
+  };
+
+  validate = person => {
+    const errors = {};
+    if (!person.name) errors.name = 'Name Required';
+    if (!person.email) errors.email = 'Email Required';
+    if (person.email && !isEmail(person.email)) errors.email = 'Invalid Email';
+    return errors;
   };
 
   render() {
