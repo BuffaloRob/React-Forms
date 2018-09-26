@@ -19,7 +19,7 @@ module.exports = class extends React.Component {
         <button
           name='button-1'
           value='great'
-          onClick={this.onGreatClick}
+          onClick={this.onButtonClick}
         >
           Great
         </button>
@@ -27,7 +27,7 @@ module.exports = class extends React.Component {
         <button
           name='button-2'
           value='amazing'
-          onClick={this.onAmazingClick}
+          onClick={this.onButtonClick}
         >
           Amazing
         </button>
